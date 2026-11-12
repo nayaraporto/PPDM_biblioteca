@@ -1,0 +1,953 @@
+
+#root {
+  min-height: 100vh;
+}
+
+:root {
+  --vinho-escuro: #4B1F30;
+  --bordo: #702D43;
+  --bordo-suave: #96566B;
+  --rosa-queimado: #C49AA5;
+  --nude: #F5EFED;
+  --fundo: #FAF7F5;
+  --branco: #FFFFFF;
+  --cinza: #81777A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  color: var(--vinho-escuro);
+  background: var(--fundo);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+/* CADASTRO E LOGIN */
+
+.auth-layout {
+  display: grid;
+  width: min(100%, 1240px);
+  min-height: 100vh;
+  grid-template-columns: minmax(0, 1fr) minmax(390px, 470px);
+  align-items: center;
+  gap: clamp(32px, 6vw, 76px);
+  margin: 0 auto;
+  padding: 44px;
+  background: var(--fundo);
+}
+
+.auth-intro {
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  padding: clamp(32px, 5vw, 64px);
+  border-radius: 20px;
+  background: var(--vinho-escuro);
+  color: var(--branco);
+}
+
+.auth-intro-content {
+  max-width: 500px;
+}
+
+.brand {
+  display: inline-block;
+  color: var(--bordo);
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+
+.auth-brand {
+  margin-bottom: 76px;
+  color: var(--branco);
+}
+
+.auth-intro .eyebrow,
+.form-heading .eyebrow {
+  margin: 0 0 12px;
+  color: var(--rosa-queimado);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1.5px;
+}
+
+.auth-intro h1 {
+  max-width: 480px;
+  margin: 0;
+  color: var(--branco);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 500;
+  letter-spacing: -1.8px;
+  line-height: 1.08;
+}
+
+.auth-intro-copy {
+  max-width: 390px;
+  margin: 21px 0 0;
+  color: #E5D5D9;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.auth-intro-note {
+  margin: 38px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  color: var(--rosa-queimado);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.15px;
+}
+
+/* FORMULÁRIOS */
+
+.form-panel {
+  width: 100%;
+  padding: 42px;
+  border: 1px solid #EFE5E3;
+  border-radius: 20px;
+  background: var(--branco);
+  box-shadow: 0 18px 55px rgb(75 31 48 / 8%);
+}
+
+.form-wrap {
+  width: 100%;
+}
+
+.form-heading {
+  margin-bottom: 26px;
+}
+
+.form-heading h2 {
+  margin: 0;
+  color: var(--vinho-escuro);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.form-heading > p:last-child {
+  margin: 8px 0 0;
+  color: var(--cinza);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 24px;
+  padding: 4px;
+  border: 1px solid #F0E5E4;
+  border-radius: 10px;
+  background: var(--nude);
+}
+
+.mode-switch button {
+  min-height: 38px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--cinza);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.mode-switch button.active {
+  color: var(--branco);
+  background: var(--bordo);
+  box-shadow: 0 3px 9px rgb(75 31 48 / 16%);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--vinho-escuro);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.field-hint {
+  color: #988d8e;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  box-sizing: border-box;
+  border: 1px solid #E8DCDD;
+  border-radius: 9px;
+  outline: none;
+  color: var(--vinho-escuro);
+  background: var(--branco);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field input::placeholder {
+  color: #A99A9D;
+}
+
+.field input:focus,
+.field select:focus,
+.search-box input:focus {
+  border-color: var(--bordo-suave);
+  box-shadow: 0 0 0 4px rgb(150 86 107 / 13%);
+}
+
+.field select {
+  cursor: pointer;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 72px;
+}
+
+.show-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  padding: 4px 0;
+  transform: translateY(-50%);
+  border: 0;
+  color: var(--bordo);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.form-error {
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #EBCBD1;
+  border-radius: 8px;
+  color: #792D40;
+  background: #FFF5F6;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.submit-button {
+  display: flex;
+  min-height: 47px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 3px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 9px;
+  color: var(--branco);
+  background: var(--bordo);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--vinho-escuro);
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: 0.75;
+}
+
+.submit-button span {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.form-switch {
+  margin: 22px 0 0;
+  color: var(--cinza);
+  font-size: 12px;
+  text-align: center;
+}
+
+.form-switch button,
+.text-button {
+  padding: 0;
+  border: 0;
+  color: var(--bordo);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.privacy-note {
+  margin: 24px 0 0;
+  color: #A09596;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* PAINEL PRINCIPAL */
+
+.dashboard {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 44px;
+  color: var(--vinho-escuro);
+}
+
+.dashboard-topbar {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E9DDDF;
+}
+
+.dashboard-account {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #6F6064;
+  font-size: 13px;
+}
+
+.role-badge {
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: var(--bordo);
+  background: #F3E8EB;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.dashboard-account .text-button {
+  padding: 8px 13px;
+  border: 1px solid #E7D9DC;
+  border-radius: 8px;
+  color: var(--bordo);
+  background: var(--branco);
+  font-size: 12px;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+
+.dashboard-account .text-button:hover {
+  background: var(--nude);
+}
+
+/* BOAS-VINDAS */
+
+.welcome-section {
+  margin-top: 30px;
+  padding: 35px 38px;
+  border-radius: 18px;
+  color: var(--branco);
+  background: var(--vinho-escuro);
+}
+
+.welcome-section h1 {
+  margin: 0;
+  color: var(--branco);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+.welcome-copy {
+  margin: 9px 0 0;
+  color: #E5D5D9;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.inventory-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.inventory-summary span {
+  min-width: 150px;
+  padding: 11px 14px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 10px;
+  color: #F2E9EB;
+  background: rgb(255 255 255 / 8%);
+  font-size: 12px;
+}
+
+.inventory-summary strong {
+  margin-right: 4px;
+  color: var(--branco);
+  font-size: 17px;
+}
+
+/* CADASTRO DE LIVROS */
+
+.inventory-section {
+  margin-top: 24px;
+  padding: 27px 30px 30px;
+  border: 1px solid #EFE5E3;
+  border-radius: 16px;
+  background: var(--branco);
+  box-shadow: 0 8px 26px rgb(75 31 48 / 5%);
+}
+
+.users-section {
+  margin: 8px 0 24px;
+  padding: 27px 30px 30px;
+  border: 1px solid #EFE5E3;
+  border-radius: 16px;
+  background: var(--branco);
+  box-shadow: 0 8px 26px rgb(75 31 48 / 5%);
+}
+
+.users-section .section-heading {
+  margin-bottom: 18px;
+}
+
+.user-list {
+  display: grid;
+  gap: 9px;
+}
+
+.user-row {
+  display: flex;
+  min-height: 65px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 10px 14px;
+  border: 1px solid #EFE5E3;
+  border-radius: 10px;
+}
+
+.user-details {
+  display: grid;
+  min-width: 0;
+  gap: 4px;
+  font-size: 12px;
+}
+
+.user-details strong {
+  overflow: hidden;
+  color: var(--vinho-escuro);
+  text-overflow: ellipsis;
+}
+
+.user-details span {
+  overflow: hidden;
+  color: var(--cinza);
+  text-overflow: ellipsis;
+}
+
+.user-role {
+  width: min(100%, 190px);
+  flex: none;
+}
+
+.user-role select {
+  height: 39px;
+}
+
+.inventory-section .section-heading {
+  margin-bottom: 22px;
+}
+
+.section-description {
+  margin: 6px 0 0;
+  color: var(--cinza);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.book-form {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.2fr 120px;
+  align-items: end;
+  gap: 16px;
+}
+
+.quantity-field input {
+  appearance: textfield;
+}
+
+.quantity-field input::-webkit-inner-spin-button,
+.quantity-field input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.book-form-actions {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 10px;
+}
+
+.book-form-actions .submit-button {
+  min-width: 160px;
+}
+
+.cancel-button,
+.delete-button {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid #E7D9DC;
+  border-radius: 8px;
+  color: var(--bordo);
+  background: var(--branco);
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.cancel-button:hover {
+  background: var(--nude);
+}
+
+.inventory-error {
+  grid-column: 1 / -1;
+}
+
+/* COLEÇÃO DE LIVROS */
+
+.catalog-section {
+  padding: 36px 0 34px;
+}
+
+.catalog-section > .search-box {
+  margin: 0 0 20px;
+}
+
+.search-box {
+  display: block;
+  width: min(100%, 520px);
+  margin-top: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  height: 45px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid #E7D9DC;
+  border-radius: 9px;
+  outline: none;
+  color: var(--vinho-escuro);
+  background: var(--branco);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.search-box input::placeholder {
+  color: #A99A9D;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: var(--vinho-escuro);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.35px;
+}
+
+.book-count {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--bordo);
+  background: #F3E8EB;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.book-list {
+  display: grid;
+  gap: 9px;
+}
+
+.book-card {
+  display: flex;
+  min-height: 76px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 17px;
+  border: 1px solid #EFE5E3;
+  border-radius: 11px;
+  background: var(--branco);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.book-card:hover {
+  border-color: #D8BFC7;
+  box-shadow: 0 5px 16px rgb(75 31 48 / 7%);
+}
+
+.book-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.book-card h3 {
+  overflow: hidden;
+  margin: 0;
+  color: var(--vinho-escuro);
+  font-size: 14px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.book-author {
+  overflow: hidden;
+  margin: 5px 0 0;
+  color: var(--cinza);
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.book-category {
+  flex: none;
+  color: var(--bordo-suave);
+  font-size: 11px;
+}
+
+.book-quantity {
+  flex: none;
+  color: #80515F;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.book-quantity.out-of-stock {
+  color: #A33B4B;
+}
+
+.book-status {
+  flex: none;
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #5D625E;
+  background: #F1F1EE;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.book-status.status-emprestado {
+  color: #77551A;
+  background: #FBF1D9;
+}
+
+.book-status.status-devolvido,
+.book-status.status-disponivel {
+  color: #41634B;
+  background: #EAF3EC;
+}
+
+.book-status.status-atrasado {
+  color: #92374D;
+  background: #FFF0F2;
+}
+
+.book-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 12px;
+  margin-left: 8px;
+}
+
+.book-status-control {
+  width: 140px;
+}
+
+.book-status-control select {
+  height: 34px;
+  padding: 0 8px;
+}
+
+.book-actions .text-button,
+.book-actions .delete-button {
+  font-size: 12px;
+}
+
+.delete-button {
+  min-height: 33px;
+  padding: 0 11px;
+  border-color: #EBD8DD;
+  color: #92374D;
+}
+
+.delete-button:hover {
+  border-color: #E2BFC8;
+  background: #FFF5F6;
+}
+
+.empty-search {
+  margin: 0;
+  padding: 25px 20px;
+  border: 1px dashed #DCCBD0;
+  border-radius: 11px;
+  color: var(--cinza);
+  background: #FCF9F8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* RODAPÉ */
+
+.dashboard-footer {
+  padding: 17px 0 25px;
+  border-top: 1px solid #E9DDDF;
+  color: #978B8C;
+  font-size: 11px;
+}
+
+/* ACESSIBILIDADE */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--rosa-queimado);
+  outline-offset: 3px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 860px) {
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 430px);
+    gap: 28px;
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .auth-intro {
+    padding: 32px;
+  }
+
+  .auth-brand {
+    margin-bottom: 52px;
+  }
+
+  .form-panel {
+    padding: 34px 30px;
+  }
+
+  .dashboard {
+    padding-right: 28px;
+    padding-left: 28px;
+  }
+
+  .book-form {
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+  }
+
+  .quantity-field {
+    grid-column: 1 / 2;
+  }
+}
+
+@media (max-width: 680px) {
+  .auth-layout {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 26px 20px;
+  }
+
+  .auth-intro {
+    min-height: auto;
+    padding: 30px 26px;
+    border-radius: 16px;
+  }
+
+  .auth-brand {
+    margin-bottom: 28px;
+  }
+
+  .auth-intro h1 {
+    max-width: 460px;
+    font-size: clamp(32px, 8vw, 42px);
+  }
+
+  .auth-intro-copy {
+    margin-top: 14px;
+    font-size: 13px;
+  }
+
+  .auth-intro-note {
+    display: block;
+    margin-top: 22px;
+  }
+
+  .form-panel {
+    padding: 28px 24px;
+    border-radius: 16px;
+  }
+
+  .dashboard {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .dashboard-topbar {
+    min-height: 68px;
+  }
+
+  .welcome-section {
+    margin-top: 22px;
+    padding: 28px 24px;
+  }
+
+  .inventory-section {
+    padding: 23px 20px;
+  }
+
+  .users-section {
+    padding: 23px 20px;
+  }
+
+  .book-form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .book-form .field:first-child,
+  .book-form .field:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .quantity-field {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-layout {
+    gap: 20px;
+    padding: 20px 14px;
+  }
+
+  .auth-intro {
+    padding: 26px 22px;
+  }
+
+  .auth-brand {
+    margin-bottom: 22px;
+  }
+
+  .form-panel {
+    padding: 24px 20px;
+  }
+
+  .form-heading h2 {
+    font-size: 24px;
+  }
+
+  .dashboard {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .dashboard-account {
+    gap: 11px;
+  }
+
+  .user-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-role {
+    width: 100%;
+  }
+
+  .welcome-section {
+    padding: 24px 20px;
+  }
+
+  .inventory-summary {
+    gap: 8px;
+  }
+
+  .inventory-summary span {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .book-card {
+    flex-wrap: wrap;
+    gap: 11px;
+    padding: 13px;
+  }
+
+  .book-details {
+    flex-basis: calc(100% - 110px);
+  }
+
+  .book-quantity {
+    margin-left: auto;
+  }
+
+  .book-actions {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+
+  .book-status-control {
+    width: 100%;
+  }
+}
